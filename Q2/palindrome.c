@@ -14,11 +14,26 @@
 bool isPalindrome (char sentence[], int length) {
     printf("\nisPalindrome::START: %s, %d\n", sentence, length);
 
-    // TODO: YOUR CODE HERE!
-    
-    printf("\nisPalindrome::END\n");
-    return false;
-}
+    int index = 0; //index para ser usado no while
+    int temLetraDiferente = 0;
+   
+   while(index < length){
+       if (sentence[index] != sentence[length - 1 - index]){ //verifica se as letras sao diferentes
+           temLetraDiferente = 1;
+        }
+       index = index + 1;
+    }
+   
+   if (temLetraDiferente == 1){ //se tiver encontrado uma letra diferente
+       printf("false");
+       printf("\nisPalindrome::END\n");
+       return false;
+    }
+   printf("true");
+   printf("\nisPalindrome::END\n");
+   return true;
+   
+}// end isPalindrome 
 
 int main()
 {
