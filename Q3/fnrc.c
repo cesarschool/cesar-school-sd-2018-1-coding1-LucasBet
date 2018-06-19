@@ -12,7 +12,36 @@ char firstNonRepeatingChar (char sentence[], int length)
 {
     printf("\nfirstNonRepeatingChar::START: %s, %d\n", s, length);
     
-    // TODO: YOUR CODE HERE!
+   int index1 = 0; //para usar no loop 1
+   int index2 = 0; //para usar no loop 2
+   int letraERepetida = 1;
+   char letraNaoRepetida ;
+   
+   while(index1 < length){
+       letraERepetida = 0; //resetando para próxima letra da sentença
+       index2 = 0;
+       
+       //compara a letra de index1 com todas as outras letras da sentença, exceto quando
+       // index1 é igual a index 2
+       while(index2 < length){
+           if(index1 != index2){
+               if (sentence[index1]==sentence[index2]){
+                   letraERepetida = 1; //essa letra é repetida
+               }
+           }
+           index2++;
+       } // while loop 2
+       
+       if (letraERepetida == 0){ //se essa letra não é repetida
+           letraNaoRepetida = sentence[index1];
+           printf("%c", letraNaoRepetida);
+           return(letraNaoRepetida);
+       }
+       index1++;    
+   }// while loop 1
+   printf("-1");
+   return -1;
+}// end firstNonRepeatingChar
     
     printf("\nfirstNonRepeatingChar::END\n");
     return -1;
